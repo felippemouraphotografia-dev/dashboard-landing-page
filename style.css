@@ -7,75 +7,117 @@
 }
 
 body {
-    background-color: #0d0d0d; /* Fundo escuro elegante tipo galeria */
-    color: #e0e0e0;            /* Texto claro suave */
+    background-color: #0f111a; /* Fundo azul-escuro sofisticado estilo dashboard */
+    color: #e2e8f0;
     padding: 30px 20px;
     min-height: 100vh;
 }
 
 /* --- CABEÇALHO --- */
 header {
-    text-align: center;
-    margin-bottom: 40px;
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1e2235;
+    padding-bottom: 20px;
 }
 
 header h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: #ffffff;
-    font-weight: 300;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 header p {
-    color: #888888;
-    font-size: 0.95rem;
-    letter-spacing: 1px;
+    color: #64748b;
+    font-size: 0.8rem;
     text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
 }
 
-/* --- GRID DE MÉTRICAS (CARTÕES) --- */
+/* Botão de atualizar com gradiente */
+header button {
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+header button:hover {
+    opacity: 0.85;
+}
+
+/* --- GRID DE CARTÕES (ESTILO CRM) --- */
 .dashboard-container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
 .card {
-    background-color: #161616; /* Fundo do cartão ligeiramente mais claro */
-    border: 1px solid #262626; /* Borda subtil */
-    border-radius: 8px;
-    padding: 25px;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    background-color: #181b28; /* Fundo escuro do cartão */
+    border: 1px solid #252a40;  /* Borda sutil */
+    border-radius: 14px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
+/* Linha de gradiente no topo de cada cartão (como na referência) */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #7c3aed, #06b6d4);
+}
+
 .card:hover {
-    transform: translateY(-3px);
-    border-color: #d4af37; /* Detalhe dourado suave ao passar o rato */
+    transform: translateY(-4px);
+    border-color: #7c3aed;
 }
 
 .card h3 {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #999999;
+    letter-spacing: 1px;
+    color: #8b93ad;
     margin-bottom: 12px;
+    font-weight: 500;
 }
 
 .card .value {
     font-size: 2.2rem;
-    font-weight: 600;
+    font-weight: 700;
     color: #ffffff;
+    margin-bottom: 6px;
 }
 
-/* --- RODAPÉ / ESTADO --- */
+/* Texto descritivo / percentagem dentro do cartão */
+.card p, .card span {
+    font-size: 0.8rem;
+    color: #06b6d4; /* Tom ciano brilhante para destacar métricas */
+}
+
+/* --- RODAPÉ --- */
 .footer-status {
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
     text-align: center;
-    margin-top: 40px;
-    color: #555555;
-    font-size: 0.85rem;
+    color: #475569;
+    font-size: 0.8rem;
 }
