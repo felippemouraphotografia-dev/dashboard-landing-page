@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Desempenho - FelippeMouraPhotografia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+  
+<body>
+
+  <header class="header-dashboard">
+    <section class="header-container">
+      <hgroup class="header-title">
+        <h1>Painel de Controle</h1>
+        <p class="subtitle">Métricas e performance da Landing Page</p>
+      </hgroup>
+      <button id="btn-refresh" class="btn-primary" aria-label="Atualizar dados do dashboard">
+        🔄 Atualizar Dados
+      </button>
+    </section>
+  </header>
+
+  <main class="main-content">
+    
+    <section class="cards-grid" aria-label="Métricas Principais">
+      <article class="card">
+        <header class="card-header">
+          <h2>Total de Visitas</h2>
+          <aside class="icon" aria-hidden="true">👁️</aside>
+        </header>
+        <p class="metric-value" id="val-visitas">0</p>
+        <span class="metric-trend positive">+12% este mês</span>
+      </article>
+
+      <article class="card">
+        <header class="card-header">
+          <h2>Cliques em Contato</h2>
+          <aside class="icon" aria-hidden="true">💬</aside>
+        </header>
+        <p class="metric-value" id="val-cliques">0</p>
+        <span class="metric-trend positive">+8% esta semana</span>
+      </article>
+
+      <article class="card">
+        <header class="card-header">
+          <h2>Formulários/Leads</h2>
+          <aside class="icon" aria-hidden="true">📋</aside>
+        </header>
+        <p class="metric-value" id="val-leads">0</p>
+        <span class="metric-trend neutral">Estável</span>
+      </article>
+
+      <article class="card">
+        <header class="card-header">
+          <h2>Taxa de Conversão</h2>
+          <aside class="icon" aria-hidden="true">🎯</aside>
+        </header>
+        <p class="metric-value" id="val-conversao">0%</p>
+        <span class="metric-trend positive">+2.4% vs mês anterior</span>
+      </article>
+    </section>
+
+    <section class="details-grid">
+      
+      <article class="panel chart-panel">
+        <header class="panel-header">
+          <h2>Tráfego nos Últimos 7 Dias</h2>
+        </header>
+        <figure class="chart-figure">
+          <canvas id="trafficChart" width="600" height="260" aria-label="Gráfico de tráfego semanal" role="img"></canvas>
+        </figure>
+      </article>
+
+      <article class="panel log-panel">
+        <header class="panel-header">
+          <h2>Últimos Eventos</h2>
+        </header>
+        <ul class="activity-list" id="activity-list">
+          <!-- Inserido dinamicamente via JS -->
+        </ul>
+      </article>
+
+    </section>
+
+  </main>
+
+  <footer class="footer-dashboard">
+    <p>Dashboard Local • Atualizado em tempo real</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>  
+</body>
+</html>
