@@ -7,18 +7,17 @@
 }
 
 body {
-    background-color: #0b0d14; /* Fundo escuro profundo idêntico ao modelo */
+    background-color: #0b0d14;
     color: #e2e8f0;
     min-height: 100vh;
 }
 
-/* Layout Principal (Sidebar + Conteúdo lado a lado) */
 .app-container {
     display: flex;
     min-height: 100vh;
 }
 
-/* --- SIDEBAR LATERAL --- */
+/* --- SIDEBAR --- */
 .sidebar {
     width: 240px;
     background-color: #121520;
@@ -71,7 +70,6 @@ body {
     overflow-y: auto;
 }
 
-/* Cabeçalho */
 header {
     display: flex;
     justify-content: space-between;
@@ -105,11 +103,10 @@ header p {
     transition: opacity 0.2s;
 }
 
-#refresh-btn:hover {
-    opacity: 0.9;
-}
+#refresh-btn:hover { opacity: 0.9; }
+#refresh-btn:disabled { opacity: 0.6; cursor: wait; }
 
-/* --- GRID DE CARTÕES LADO A LADO --- */
+/* --- GRID DE CARTÕES --- */
 .dashboard-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -132,27 +129,6 @@ header p {
     border-color: #7c3aed;
 }
 
-/* Cartões com Gradientes Coloridos (como na imagem) */
-.card.gradient-purple {
-    background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
-    border: none;
-}
-
-.card.gradient-cyan {
-    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-    border: none;
-}
-
-.card.gradient-purple h3, .card.gradient-purple .value, .card.gradient-purple p,
-.card.gradient-cyan h3, .card.gradient-cyan .value, .card.gradient-cyan p {
-    color: #ffffff;
-}
-
-.card.gradient-purple p, .card.gradient-cyan p {
-    opacity: 0.9;
-}
-
-/* Caixas bem definidas standard */
 .card h3 {
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -168,13 +144,32 @@ header p {
     margin-bottom: 8px;
 }
 
-.card p {
+.card .desc {
     font-size: 0.85rem;
     color: #06b6d4;
 }
 
-.card .status-stable {
-    color: #94a3b8;
+.card .status-up { color: #22c55e; }
+.card .status-stable { color: #94a3b8; }
+
+/* Cartões com gradiente */
+.card.gradient-purple {
+    background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+    border: none;
+}
+
+.card.gradient-cyan {
+    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+    border: none;
+}
+
+.card.gradient-purple h3, .card.gradient-purple .value, .card.gradient-purple .desc,
+.card.gradient-cyan h3, .card.gradient-cyan .value, .card.gradient-cyan .desc {
+    color: #ffffff;
+}
+
+.card.gradient-purple .desc, .card.gradient-cyan .desc {
+    opacity: 0.9;
 }
 
 /* --- SEÇÃO INFERIOR --- */
@@ -198,3 +193,38 @@ header p {
     padding: 20px 0;
     text-align: center;
 }
+
+#trafficChart {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 768px) {
+    .app-container { flex-direction: column; }
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #1e2235;
+        padding: 20px;
+    }
+    .main-content { padding: 20px; }
+    header { flex-direction: column; align-items: flex-start; gap: 15px; }
+}
+/* Ajustes para o HTML semântico */
+.nav-section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar a { display: block; }
+
+.nav-title { font-weight: 400; }
+
+hgroup p { margin: 4px 0 0; }
+
+figure { margin: 0; }
