@@ -3,73 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Fotografia Fine Art</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="app-container">
 
     <!-- MENU LATERAL -->
-    <aside class="sidebar">
-        <h2>Fine Art Dash</h2>
-        <nav class="nav-section">
-            <span class="nav-title">Menu</span>
-            <a href="#" class="active">Visão Geral</a>
-            <a href="#">Métricas</a>
-            <a href="#">Tráfego</a>
-        </nav>
-        <nav class="nav-section">
-            <span class="nav-title">Canais</span>
-            <a href="#">Instagram</a>
-            <a href="#">TikTok</a>
-            <a href="#">Direct</a>
-        </nav>
-    </aside>
+    <nav class="sidebar" aria-label="Menu principal">
+        <h2>📊 Dashboard</h2>
+        <section class="nav-section">
+            <h3 class="nav-title">Menu</h3>
+            <ul>
+                <li><a href="#" class="active" aria-current="page">Visão Geral</a></li>
+                <li><a href="#">Tráfego</a></li>
+                <li><a href="#">Leads</a></li>
+            </ul>
+        </section>
+    </nav>
 
     <!-- CONTEÚDO PRINCIPAL -->
     <main class="main-content">
         <header>
             <hgroup>
-                <h1>Painel de Desempenho</h1>
-                <p>Métricas em tempo real da Landing Page</p>
+                <h1>Visão Geral</h1>
+                <p>Dados em tempo real</p>
             </hgroup>
-            <button id="refresh-btn">Atualizar Dados</button>
+            <button id="refresh-btn" type="button">🔄 Atualizar Dados</button>
         </header>
 
-        <!-- GRID DE CARTÕES (LADO A LADO) -->
-        <section class="dashboard-grid">
+        <!-- CARTÕES DE MÉTRICAS -->
+        <section class="dashboard-grid" aria-label="Métricas">
             <article class="card gradient-purple">
-                <h3>Total de Visitas</h3>
+                <h3>Visitas</h3>
                 <p class="value" id="visitas">-</p>
-                <p class="desc">+12% este mês</p>
+                <p class="desc">Total de acessos</p>
             </article>
-
             <article class="card gradient-cyan">
                 <h3>Cliques em Contato</h3>
                 <p class="value" id="cliques">-</p>
-                <p class="desc">+8% esta semana</p>
+                <p class="desc">Botões de contato</p>
             </article>
-
-            <article class="card standard-card">
-                <h3>Formulários / Leads</h3>
+            <article class="card">
+                <h3>Leads</h3>
                 <p class="value" id="leads">-</p>
-                <p class="status-stable">Estável</p>
+                <p class="desc status-up">Contatos gerados</p>
             </article>
-
-            <article class="card standard-card">
+            <article class="card">
                 <h3>Taxa de Conversão</h3>
                 <p class="value" id="conversao">-</p>
-                <p class="status-up">+2.4% vs mês anterior</p>
+                <p class="desc status-stable">Leads ÷ Visitas</p>
             </article>
         </section>
 
-        <!-- SEÇÃO INFERIOR -->
-        <section class="bottom-section">
-            <article class="wide-card">
-                <h3>Tráfego nos Últimos 7 Dias</h3>
-                <aside class="chart-placeholder">
-                    <p id="trafego-info">A sincronizar com a planilha do Google Sheets...</p>
-                </aside>
-            </article>
+        <!-- GRÁFICO -->
+        <section class="wide-card">
+            <h3>Tráfego da Semana</h3>
+            <figure class="chart-placeholder">
+                <canvas id="trafficChart" width="800" height="260"
+                        role="img" aria-label="Gráfico de tráfego da semana"></canvas>
+                <figcaption id="trafego-info">A sincronizar com a planilha do Google Sheets...</figcaption>
+            </figure>
         </section>
     </main>
 
